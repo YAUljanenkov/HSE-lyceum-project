@@ -30,7 +30,7 @@ SMM-менеджер компании Remagic.Studio.
 
 ### Инструменты разработки
 * Среда: WebStorm
-* Языки: HTML/JS/CSS
+* Языки: HTML/JS/CSS, Python
 * Фреймворки и препроцессоры: React.JS, SASS
 
 ### Этапы разработки.
