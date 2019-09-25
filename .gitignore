@@ -59,3 +59,17 @@ typings/
 
 # next.js build output
 .next
+
+.DS_Store
+
+# JetBrains garbage
+.idea/
+
+# python output
+venv/
+core/venv/
+core/__pycache__/
+core/vk_config.v2.json
+core/personal_data.py
+
+
