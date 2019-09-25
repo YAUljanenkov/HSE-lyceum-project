@@ -46,12 +46,3 @@ class VKBot:
             post_id = self.vk.wall.delete(message=data['message'], owner_id=data['id'], post_id=data['post_id'],
                                           v='5.101')
 
-
-new_data = {'message': 'lol', 'id': '-174487798'}
-bot = VKBot(LOGIN, PASSWORD)
-post = bot.post(new_data)['post_id']
-input()
-new_data = {'message': 'kek', 'id': '-174487798', 'post_id': post}
-some_data = bot.change(new_data)
-input()
-bot.delete(new_data)

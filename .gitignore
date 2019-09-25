@@ -68,6 +68,7 @@ typings/
 # python output
 venv/
 core/venv/
+core/__pycache__/
 core/vk_config.v2.json
 core/personal_data.py
 
