@@ -1,0 +1,64 @@
+.form-wrapper {
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.group-wrapper {
+    padding-left: 40px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.form {
+    width: 100vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.group {
+
+    min-width: 60% !important;
+}
+.page {
+    border: 1px solid gray;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    width: 60vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+.button-form {
+    margin: 0 10px 0 10px ;
+}
+.add {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-color: firebrick;
+    position: absolute;
+    right: 10vw;
+    bottom: 10vh;
+    color: white;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+}
+.group-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-around;
+}
