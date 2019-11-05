@@ -60,5 +60,5 @@
 .buttons {
     display: flex;
     flex-direction: row;
-    justify-content: flex-around;
+    justify-content: space-around;
 }

@@ -100,7 +100,7 @@ def add():
 
 
 if __name__ == '__main__':
-    vk_bot = VKBot(login, password)
+    # vk_bot = VKBot(login, password)
     tg_bot = TgBot(token, {})
     db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
     db.generate_mapping(create_tables=True)
