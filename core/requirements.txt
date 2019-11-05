@@ -3,3 +3,5 @@ vk
 requests
 pony
 flask
+flask-restful
+flask_httpauth

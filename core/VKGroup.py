@@ -1,11 +1,11 @@
 import vk_api
-from personal_data import login, password
-
+from personal_data import secret_key, login, password, token
 
 class VKBot:
     login = ''
     password = ''
     vk = None
+    upload=None
 
     def __init__(self, login, password):
         self.login = login
@@ -19,6 +19,7 @@ class VKBot:
         vk_session = vk_api.VkApi(self.login, self.password)
         vk_session.auth()
         self.vk = vk_session.get_api()
+        self.upload = vk_api.VkUpload(vk_session)
 
     def post(self, data):
         """
@@ -27,7 +28,18 @@ class VKBot:
         :return: dict {'result', 'message'}
         """
         try:
-            post_id = self.vk.wall.post(message=data['text'], owner_id=data['id'], from_group=1, v='5.101')
+            attachments = ''
+            if data.get('files'):
+
+                for file in data['files']:
+                    photo = self.upload.photo(
+                        file,
+                        album_id=self.vk.photos.getAlbums(owner_id=data['id'])['items'][0]['id'],
+                        group_id=abs(int(data['id']))
+                    )
+                    attachments += ',photo{}_{}'.format(photo[0]['owner_id'], photo[0]['id'])
+            post_id = self.vk.wall.post(message=data['text'], owner_id=data['id'], attachments=attachments,
+                                        from_group=1, v='5.101')
             return {'result': 1, **post_id}
         except vk_api.exceptions.ApiError:
             self.authorize()
@@ -61,7 +73,7 @@ class VKBot:
         except vk_api.exceptions.ApiError:
             self.authorize()
             post_id = self.vk.wall.delete(owner_id=data['id'], post_id=data['post_id'], v='5.101')
-        return {'result': 1, **post_id}
+        return {'result': 1, "post_id":post_id}
 
     def check(self, id):
         """
@@ -79,6 +91,10 @@ class VKBot:
         return 1
 
 
-if __name__ == '__main__':
-    bot = VKBot(login, password)
-    print(bot.check(-187534334))
+if __name__ =='__main__':
+    vk_bot = VKBot(login, password)
+    photo = vk_bot.upload.photo(
+        '/Users/macbook/Desktop/HSE-lyceum-project/core/photos/metro-new-1.jpg',
+        album_id=258455213,
+        group_id=174487798
+    )
