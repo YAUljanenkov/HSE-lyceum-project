@@ -12,14 +12,16 @@ import {
   Link
 } from "react-router-dom";
 
-class App extends React.Component {
-  state = {
+class Wrapper extends React.Component {
+  logout = () => {
+    document.cookie = `token=0; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+    window.location.reload();
   };
   render() {
     return(
         <Router>
           <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light nav-items-control">
               <Link className="navbar-brand" to="#">Posting bot</Link>
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
@@ -34,17 +36,21 @@ class App extends React.Component {
                   </li>
                 </ul>
               </div>
+              <div className="logout-wrapper">
+                <span className="username">{this.props.login}</span>
+                <button type="button" className="btn btn-outline-danger" onClick={this.logout}>Выйти</button>
+              </div>
             </nav>
 
             <Switch>
               <Route path="/groups">
-                <Groups setActiveRoute={this.props.setActiveRoute}/>
+                <Groups setActiveRoute={this.props.setActiveRoute} login={this.props.login}/>
               </Route>
               <Route path="/posts">
-                <Posts setActiveRoute={this.props.setActiveRoute}/>
+                <Posts setActiveRoute={this.props.setActiveRoute} login={this.props.login}/>
               </Route>
               <Route path="/new_post">
-                <Post setActiveRoute={this.props.setActiveRoute}/>
+                <Post setActiveRoute={this.props.setActiveRoute} login={this.props.login}/>
               </Route>
             </Switch>
           </div>
@@ -65,4 +71,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);
