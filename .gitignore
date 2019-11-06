@@ -40,36 +40,60 @@ jspm_packages/
 typings/
 
 # Optional npm cache directory
-.npm
+frontend/.npm
 
 # Optional eslint cache
-.eslintcache
+frontend/.eslintcache
 
 # Optional REPL history
-.node_repl_history
+frontend/.node_repl_history
 
 # Output of 'npm pack'
-*.tgz
+frontend/*.tgz
 
 # Yarn Integrity file
-.yarn-integrity
+frontend/.yarn-integrity
 
 # dotenv environment variables file
-.env
+frontend/.env
 
 # next.js build output
-.next
+frontend/.next
 
-.DS_Store
+frontend..DS_Store
 
 # JetBrains garbage
 .idea/
-
+frontend/.idea/
 # python output
 venv/
 core/venv/
 core/__pycache__/
 core/vk_config.v2.json
 core/personal_data.py
+
+
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
 
 
